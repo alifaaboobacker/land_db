@@ -88,3 +88,9 @@ Open a browser or use Postman to test:
 http://127.0.0.1:5000/search?q=John%20Doe
 ```
 A PDF file named land_record.pdf containing the matching record details will be downloaded.
+# Approach
+The application uses Flask to create a REST API endpoint /search that accepts a query parameter q. Using SQLAlchemy ORM, it searches the land_records table for records where the parcel ID, plot number, or owner name matches the query.
+
+If a record is found, the details are formatted into a PDF using the ReportLab library, which generates a professional, well-structured PDF document on the fly. This PDF is then returned directly in the HTTP response as an attachment, allowing the user to download it easily.
+
+Using ReportLab allows full control over the PDF layout without the complexity and system dependencies of HTML-to-PDF tools.
